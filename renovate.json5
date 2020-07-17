@@ -8,7 +8,8 @@
   "labels": ["Type:dependencies"],
   // npm向けの設定
   "npm": {
-    "extends": [
+    "extends": 
+      ":ignoreUnstable",
       // https://renovatebot.com/docs/presets-default/#nounscheduledupdates
       ":noUnscheduledUpdates",
       // fix: とかのコミットメッセージのprefixをつけてくれる
