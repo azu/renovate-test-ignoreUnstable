@@ -6,9 +6,22 @@
   ],
   "prConcurrentLimit": 0,
   "labels": ["Type:dependencies"],
+  // npm向けの設定
   "npm": {
     "extends": [
-      ":ignoreUnstable"
-    ]
+      ":ignoreUnstable",
+    ],
+    "major": {
+        "automerge": false
+    },
+    "minor": {
+        "automerge": true
+    },
+    "patch": {
+        "automerge": true
+    },
+    "pin": {
+        "automerge": true
+    },
   }
 }
