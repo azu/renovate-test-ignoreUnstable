@@ -6,7 +6,6 @@
   ],
   "prConcurrentLimit": 0,
   "labels": ["Type:dependencies"],
-  // npm向けの設定
   "npm": {
     "extends": [
       ":ignoreUnstable",
