@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "config:base",
+    "docker:disable",
+    ":timezone(Asia/Tokyo)"
+  ],
+  "prConcurrentLimit": 0,
+  "labels": ["Type:dependencies"],
+  // npm向けの設定
+  "npm": {
+    "extends": [
+      // https://renovatebot.com/docs/presets-default/#nounscheduledupdates
+      ":noUnscheduledUpdates",
+      // fix: とかのコミットメッセージのprefixをつけてくれる
+      // https://renovatebot.com/docs/presets-default/#semanticprefixfixdepschoreothers
+      ":semanticPrefixFixDepsChoreOthers",
+      // Branchでテストが通ってからPull Requestを作る
+      // Pull Requestが出てからテストが終わるまで待つのを防ぐ
+      // https://renovatebot.com/docs/presets-default/#prnotpending
+      ":prNotPending",
+      // パッケージのバージョンをpinで固定する
+      // 例) "1.0.0"
+      // https://renovatebot.com/docs/configuration-options/#rangestrategy
+      // https://docs.renovatebot.com/presets-default/#pinallexceptpeerdependencies
+      ":pinAllExceptPeerDependencies"
+    ],
+    // 自動マージの設定
+    // patchは自動マージ、minorとmajorは自動マージしない
+    "major": {
+        "automerge": false
+    },
+    "minor": {
+        "automerge": false
+    },
+    "patch": {
+        "automerge": true
+    },
+    "pin": {
+        "automerge": true
+    },
+  }
+}
